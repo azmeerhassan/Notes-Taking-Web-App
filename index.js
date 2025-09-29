@@ -17,6 +17,13 @@ app.get('/', (req, res)=>{
     
 })
 
+app.post('/create', (req, res)=>{
+    fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.details, (err)=>{
+        res.redirect("/")
+    })
+    
+})
+
 app.listen(3000, ()=>{
     console.log("Server is listening on port 3000 ...");
 })
